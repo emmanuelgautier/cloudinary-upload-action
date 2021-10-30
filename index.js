@@ -1,18 +1,42 @@
 const core = require('@actions/core');
-const wait = require('./wait');
+const isGlob = require('is-glob');
+const glob = require('glob');
 
+const uploader = require('./uploader')
 
-// most @actions toolkit packages have async methods
+function isJson(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+
 async function run() {
   try {
-    const ms = core.getInput('milliseconds');
-    core.info(`Waiting ${ms} milliseconds ...`);
+    const cloudName = core.getInput('cloud-name') || process.env.CLOUDINARY_CLOUD_NAME;
+    const apiKey = core.getInput('api-key') || process.env.CLOUDINARY_API_KEY;
+    const apiSecret = core.getInput('api-secret') || process.env.CLOUDINARY_API_SECRET;
+    const imagePath = core.getInput('image');
+    const imagesPath = core.getInput('images');
 
-    core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-    await wait(parseInt(ms));
-    core.info((new Date()).toTimeString());
+    if (!cloudName || !apiKey || !apiSecret) {
+      throw new Error('Cloudinary cloud name, api key and api secret are required');
+    }
 
-    core.setOutput('time', new Date().toTimeString());
+    let paths = [];
+    if (isJson(imagesPath)) {
+      paths = JSON.parse(imagesPath);
+    } else if (isGlob(imagesPath)) {
+      paths = glob.sync(imagesPath);
+    } else if (imagePath) {
+      paths = [imagePath];
+    } else {
+      throw new Error('one of image or images parameter is required');
+    }
+
+    await uploader(cloudName, apiKey, apiSecret, paths);
   } catch (error) {
     core.setFailed(error.message);
   }

@@ -1,7 +1,7 @@
 {
-  "name": "javascript-action",
+  "name": "cloudinary-upload-action",
   "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "description": "Cloudinary Upload Github Action",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -11,25 +11,31 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/emmanuelgautier/cloudinary-upload-action.git"
   },
   "keywords": [
     "GitHub",
     "Actions",
-    "JavaScript"
+    "Cloudinary",
+    "Images"
   ],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/emmanuelgautier/cloudinary-upload-action/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/emmanuelgautier/cloudinary-upload-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5"
+    "@actions/core": "1.6.0",
+    "cloudinary": "1.27.1",
+    "glob": "7.2.0",
+    "is-glob": "4.0.3"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.31.1",
-    "eslint": "^8.0.0",
-    "jest": "^27.2.5"
+    "@emmanuelgautier/renovate-config": "1.2.2",
+    "@vercel/ncc": "0.31.1",
+    "dotenv": "^10.0.0",
+    "eslint": "8.1.0",
+    "jest": "27.3.1"
   }
 }
