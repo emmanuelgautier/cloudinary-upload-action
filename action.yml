@@ -1,5 +1,9 @@
 name: 'Cloudinary Upload Images'
-description: 'Upload images to Cloudinary'
+author: 'Emmanuel Gautier'
+description: 'Upload your medias with Cloudinary Upload Github Action to Cloudinary SaaS solution.'
+branding:
+  icon: arrow-up-circle
+  color: purple
 inputs:
   cloud-name:
     description: 'Cloudinary account name'
