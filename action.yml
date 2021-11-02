@@ -1,10 +1,26 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Cloudinary Upload Images'
+description: 'Upload images to Cloudinary'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
+  cloud-name:
+    description: 'Cloudinary account name'
+    required: false
+    default: '<name>'
+  api-key:
+    description: 'Cloudinary API Key'
+    required: false
+    default: '<api-key>'
+  api-secret:
+    description: 'Cloudinary API Secret Key'
+    required: false
+    default: '<api-secret>'
+  image:
+    description: 'Image path to upload'
+    required: false
+    default: ""
+  images:
+    description: 'Pattern or array of images path to upload'
+    required: false
+    default: ""
 outputs:
   time: # output will be available to future steps
     description: 'The current time after waiting'
