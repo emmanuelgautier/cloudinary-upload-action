@@ -27,7 +27,7 @@
   "homepage": "https://github.com/emmanuelgautier/cloudinary-upload-action#readme",
   "dependencies": {
     "@actions/core": "1.6.0",
-    "cloudinary": "1.27.1",
+    "cloudinary": "2.2.0",
     "glob": "10.4.1",
     "is-glob": "4.0.3"
   },
