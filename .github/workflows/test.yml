@@ -11,8 +11,17 @@ jobs:
   units:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm ci
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install dependencies
+        run: npm ci
+
       - env:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
@@ -23,7 +32,8 @@ jobs:
   test-one-image:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
       - uses: ./
         with:
           cloud-name: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
@@ -34,7 +44,8 @@ jobs:
   test-upload-one-image-without-public-id:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
       - uses: ./
         with:
           cloud-name: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
@@ -45,7 +56,8 @@ jobs:
   test-bulk-upload-images-pattern:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
       - uses: ./
         with:
           cloud-name: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
@@ -56,7 +68,8 @@ jobs:
   test-bulk-upload-images-array:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
       - uses: ./
         with:
           cloud-name: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
