@@ -72,8 +72,4 @@
   "engines": {
     "node": ">=0.6"
   }
-
-,"_resolved": "https://registry.npmjs.org/cloudinary/-/cloudinary-1.27.1.tgz"
-,"_integrity": "sha512-NrSVdzD2yJUMwL4UTfOjlq+bkc88SaNoZjhibLnpI40c46vfIlz2Y77R9HfgYIQ1Lx/k+U1WKZuiQ5Z2Wd2Dsg=="
-,"_from": "cloudinary@1.27.1"
 }
