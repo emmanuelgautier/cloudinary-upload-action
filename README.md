@@ -19,7 +19,7 @@ Add the following step to your workflow:
 
 ```yaml
     - name: Cloudinary Upload Image
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: emmanuelgautier/cloudinary-upload-action@v1
       with:
           cloud-name: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           api-key: ${{ secrets.CLOUDINARY_API_KEY }}
@@ -33,7 +33,7 @@ You can upload multiple files with the `images` parameter putting a file path pa
 
 ```yaml
     - name: Cloudinary Upload Images
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: emmanuelgautier/cloudinary-upload-action@v1
       with:
           cloud-name: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           api-key: ${{ secrets.CLOUDINARY_API_KEY }}
@@ -45,7 +45,7 @@ Or directly an array of files path.
 
 ```yaml
     - name: Cloudinary Upload Images
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: emmanuelgautier/cloudinary-upload-action@v1
       with:
           cloud-name: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           api-key: ${{ secrets.CLOUDINARY_API_KEY }}
