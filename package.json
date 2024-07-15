@@ -35,7 +35,7 @@
     "@emmanuelgautier/renovate-config": "1.5.4",
     "@vercel/ncc": "0.38.1",
     "dotenv": "16.4.5",
-    "eslint": "8.2.0",
+    "eslint": "9.7.0",
     "jest": "27.3.1"
   }
 }
