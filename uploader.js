@@ -6,8 +6,7 @@ module.exports = function uploader(cloudName, apiKey, apiSecret, files) {
   cloudinary.config({
     cloud_name: cloudName,
     api_key: apiKey,
-    api_secret: apiSecret,
-    secure: true
+    api_secret: apiSecret
   });
 
   const cloudinaryUploader = file => {
