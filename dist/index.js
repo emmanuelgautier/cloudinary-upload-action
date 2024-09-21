@@ -64812,7 +64812,9 @@ module.exports = function uploader(cloudName, apiKey, apiSecret, files) {
   const cloudinaryUploader = file => {
     core.info(`uploading ${file}`);
 
-    return cloudinary.uploader.upload(file, { public_id: path.basename(file) });
+    return cloudinary.uploader.upload(file, {
+      public_id: path.basename(file, path.extname(file)),
+    });
   };
 
   return Promise.all(files.map(cloudinaryUploader));
